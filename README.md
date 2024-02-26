@@ -48,9 +48,9 @@ Puedes ver una versión en vivo de la aplicación en [GitHub Pages](https://gper
 
 Aquí algunas capturas de pantalla de la aplicación:
 
-![Inicio](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/master/assets/img/ss1.png "Pantalla Principal")
-![Card](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/master/assets/img/ss2.png "Cargar Card")
-![Modal](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/master/assets/img/ss3.png "Cargar Modal")
+![Inicio](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/main/assets/img/ss1.png "Pantalla Principal")
+![Card](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/main/assets/img/ss2.png "Cargar Card")
+![Modal](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/main/assets/img/ss3.png "Cargar Modal")
 
 ## Explicacion del Codigo
 
