@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  background-image: url("../img/fondo.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 100px;
+}
+
+/* Formulario */
+
+#preview {
+  height: 200px;
+  background-image: url(../img/lion.svg);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+/* Tabla de Participantes */
+
+#Animales {
+  height: 100%;
+  background: #f0f0f0;
+  
+}
+
+#Animales div div {
+  transition: all 200ms;
+}
+
+#Animales div >div:hover {
+  box-shadow: 0px 1px 5px 1px;
+}
+
+.participante {
+  max-width: 30%;
+}
+
+/* Modal */
+
+.modal-body {
+  max-height: 100%;/* Altura fija */
+  overflow-y: auto; /* Habilita la barra de desplazamiento vertical si es necesario */
+  word-break: break-all;
+
+}
+
+
+#titlebg{
+  background-image: none;
+  background-size: cover;
+  color: transparent;
+  background-clip: text;
+
+}
+
+/* Card */
+/* QUE TODAS LAS CARTAS TENGAN EL MISMO TAMAÑO INDEPENDIENTE SI LA FOTO ES MAS PEQUEÑA */
+
+.animal-card {
+  display: inline-block; /* Para alinear tarjetas horizontalmente */
+  height: 480px;
+  max-width: 276px; /* Tamaño maximo de la tarjeta */
+}
+
+.animal-card img {
+  width: 100%; /* Hace que la imagen llene la tarjeta */
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.scrollable-p {
+  max-height: 45px; /* Altura fija */
+  overflow-y: auto; /* Muestra la barra de desplazamiento verticalmente si es necesario */
+  width: 100%;
+
+}
+
