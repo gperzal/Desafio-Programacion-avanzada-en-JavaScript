@@ -56,7 +56,7 @@ Aquí algunas capturas de pantalla de la aplicación:
 
 Resumen de las principales funciones y metodos aplicadas en este codigo.
 
-![Código](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/master/assets/img/code.png "Comentarios")
+![Código](https://github.com/gperzal/Desafio-Prueba-Animales-Salvajes/blob/main/assets/img/code.png "Comentarios")
 
 ## Contacto
 
