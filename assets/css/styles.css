@@ -12,7 +12,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  padding: 100px;
+  width: 100%;
+  
 }
 
 /* Formulario */
@@ -42,9 +43,7 @@ body {
   box-shadow: 0px 1px 5px 1px;
 }
 
-.participante {
-  max-width: 30%;
-}
+
 
 /* Modal */
 
@@ -56,13 +55,6 @@ body {
 }
 
 
-#titlebg{
-  background-image: none;
-  background-size: cover;
-  color: transparent;
-  background-clip: text;
-
-}
 
 /* Card */
 /* QUE TODAS LAS CARTAS TENGAN EL MISMO TAMAÑO INDEPENDIENTE SI LA FOTO ES MAS PEQUEÑA */
@@ -70,7 +62,8 @@ body {
 .animal-card {
   display: inline-block; /* Para alinear tarjetas horizontalmente */
   height: 480px;
-  max-width: 276px; /* Tamaño maximo de la tarjeta */
+  width: 276px; /* Tamaño maximo de la tarjeta */
+  vertical-align: top;
 }
 
 .animal-card img {
@@ -81,9 +74,64 @@ body {
 
 
 .scrollable-p {
-  max-height: 45px; /* Altura fija */
+  max-height: 25px; /* Altura fija */
   overflow-y: auto; /* Muestra la barra de desplazamiento verticalmente si es necesario */
   width: 100%;
-
+  margin-bottom: 10px;
+  word-break: break-word; /* Asegura que las palabras largas no desborden el contenedor */
 }
 
+
+
+/* Alerta */
+
+#alertaValidacion {
+  display: none;
+}
+
+#alertaRegistro {
+  display: none;
+}
+
+
+
+h1 {
+  text-align: left; 
+  font-family: Arial Black; 
+  font-weight: bold; font-size: 30px; 
+  background: #202020; 
+  -webkit-background-clip: text; 
+  -moz-background-clip: text; 
+  background-clip: text; 
+  color: transparent; 
+  text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+  font-size: 3rem;
+  }
+
+
+
+
+/* Para pantallas de ancho 390px a 844px */
+@media only screen and (max-width: 843px) {
+  .card-body {
+    order: 1;
+  }
+  
+  #Tabla {
+    order: 2;
+  }
+  
+  h1 {
+    display: none; /* Ocultar etiquetas h1 */
+  }
+  
+ 
+}
+
+/* Para pantallas de ancho 768px a 1024px */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .animal-card.col-sm-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

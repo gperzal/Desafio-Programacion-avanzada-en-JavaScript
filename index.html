@@ -5,22 +5,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desafio Prueba - Animales Salvajes</title>
-
+  <!-- Bootstraps -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-12 card col-sm-7 text-center p-4 bg-warning shadow-lg" id="Tabla">
+  <header>
+    <!-- Encabezado -->
+
+    <h1 class="text-center">Desafio Prueba - Animales Salvajes</h1>
+
+
+  </header>
+
+  <!-- Tabla de Animales -->
+  <div class="row mx-2">
+    <div class="card col-12 col-sm-7 text-center p-4 bg-warning shadow-lg" id="Tabla">
       <h3>Animales en investigación</h3>
       <hr class="my-0 bg-dark w-75 mx-auto" />
-
+      <!-- Animales -->
       <div id="Animales" class="my-3 p-3 d-flex align-items-start justify-content-start flex-wrap bg-dark">
       </div>
 
     </div>
-    <div class="card col-12 col-sm-4 bg-warning text-dark offset-1 shadow-lg">
+
+    <!-- Formulario -->
+    <div class="card col-12 col-sm-4  bg-warning text-dark offset-1 shadow-lg ">
       <div class="card-body">
         <h5 class="card-title">Registrar animal en:</h5>
         <h6 class="card-subtitle mb-2 text-muted">
@@ -59,19 +72,26 @@
             <textarea rows="5" class="form-control shadow-lg bg-dark text-white" id="comentarios"
               maxlength="235"></textarea>
           </div>
-
           <div class="p-5 card bg-dark">
             <div id="preview"></div>
           </div>
         </div>
-
-        <btn class="btn btn-light d-block" id="btnRegistrar">Agregar</btn>
+        <btn class="btn btn-light d-block mb-3" id="btnRegistrar">Agregar</btn>
+        <!-- Alertas  Registro exitoso-->
+        <div id="alertaRegistro" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Su animal ha sido registrado </strong> en la tabla exitosamente.
+        </div>
+        <!-- Alertas  Registro fallido-->
+        <div id="alertaValidacion" class="alert alert-dark alert-dismissible fade show" role="alert">
+          <strong>Todos </strong> los campos deben estar llenos.
+        </div>
       </div>
     </div>
   </div>
 
   <audio id="player" class="d-none"></audio>
 
+  <!-- Modal -->
   <div class="modal fade" id="exampleModal">
     <div class="modal-dialog modal-dialog-centered w-25" role="document">
       <div class="modal-content bg-dark">

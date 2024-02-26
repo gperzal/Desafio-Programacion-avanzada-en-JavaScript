@@ -4,8 +4,6 @@ import { Lobo } from './modules/lobo.js';
 import { Oso } from './modules/oso.js';
 import { Serpiente } from './modules/serpiente.js';
 import { getAnimalsData } from './utils/api.js';
-import { Animal } from './modules/animal.js';
-
 
 
 let animalPreview = (() => {
@@ -36,29 +34,60 @@ let animalPreview = (() => {
 
 // IIFE for managing animal cards
 let animalCardsManager = (() => {
-    const createAnimalCard = (animalData) => {
+
+    let animales = []; // Asegúrate de tener este arreglo si aún no lo tienes
+    const createAnimalCard = (animalData, index) => {
         const card = document.createElement('div');
-        card.className = 'animal-card col-12 my-3 col-sm-4 bg-dark ';
+        card.className = 'animal-card col-12 my-3 col-sm-4  bg-dark mb-5 ';
         card.innerHTML = `
             <img src="assets/img/${animalData.imagen}" class="card-img-top" alt="${animalData.name}">
             <div class="card-body">
                 <h5 class="card-title text-white">${animalData.name}</h5>
                 <p class="card-text text-white scrollable-p">${animalData.comentarios}</p>
                 <audio controls class="w-100">
-                    <source src="${animalData.sonido}" >
+                    <source src="${animalData.sonido}" type="audio/mpeg" >
                 </audio>
+                <button class="btn btn-danger" id="deleteBtn-${index}">Eliminar</button>
             </div>
         `;
 
-        // Add click event listener to the card
+        // Crear el botón de eliminar
+        card.querySelector(`#deleteBtn-${index}`).addEventListener('click', () => {
+            removeAnimalCard(index);
+        });
+
+
+        const removeAnimalCard = (index) => {
+            // Eliminar la tarjeta del array de animales y del DOM
+            animales.splice(index, 1); // Elimina el animal del arreglo
+            displayAnimals(); // Actualiza las tarjetas en el DOM
+        };
+
+
+        // Anexar la tarjeta
         document.getElementById('Animales').appendChild(card);
         card.querySelector('img').addEventListener('click', () => showModal(animalData));
 
     };
 
+
+    const displayAnimals = () => {
+        const container = document.getElementById('Animales');
+        container.innerHTML = ''; // Limpiar el contenedor
+
+        // Volver a crear todas las tarjetas
+        animales.forEach((animal, index) => {
+            createAnimalCard(animal, index);
+        });
+    };
+
+
+
+
     const addAnimal = (name, imagen, sonido, comentarios, edad) => {
         const animalData = { name, imagen, sonido, comentarios, edad };
-        createAnimalCard(animalData);
+        animales.push(animalData); // Añade el nuevo animal al arreglo
+        displayAnimals(); // Actualiza las tarjetas en el DOM
     };
 
     return { addAnimal };
@@ -70,6 +99,15 @@ document.getElementById('btnRegistrar').addEventListener('click', () => {
     const animalAge = document.getElementById('edad').value;
     const animalComments = document.getElementById('comentarios').value;
 
+
+    // Verificar que todos los campos estén llenos
+    if (!animalName || !animalAge || !animalComments) {
+        mostrarAlerta();
+        return; // Detiene la función si algún campo está vacío
+    }
+    mostrarRegistro()
+
+
     let newAnimal;
     switch (animalName) {
         case 'Leon':
@@ -77,15 +115,19 @@ document.getElementById('btnRegistrar').addEventListener('click', () => {
             break;
         case 'Lobo':
             newAnimal = new Lobo(animalName, animalAge, 'Lobo.jpg', animalComments, 'Aullido.mp3');
+
             break;
         case 'Oso':
             newAnimal = new Oso(animalName, animalAge, 'Oso.jpg', animalComments, 'Gruñido.mp3');
+
             break;
         case 'Serpiente':
             newAnimal = new Serpiente(animalName, animalAge, 'Serpiente.jpg', animalComments, 'Siseo.mp3');
+
             break;
         case 'Aguila':
             newAnimal = new Aguila(animalName, animalAge, 'Aguila.png', animalComments, 'Chillido.mp3');
+
             break;
         default:
             console.log("Animal no encontrado:", animalName);
@@ -106,13 +148,12 @@ document.getElementById('btnRegistrar').addEventListener('click', () => {
 
 (async () => {
     animalPreview.showImage();
+
 })();
 
 
 function showModal(animalData) {
-    console.log("Animal data:", animalData);
-    //No estamos reciendo el parametro edad de la clase animal
-    console.log("Animal nombre:", animalData.name);
+
 
     // Get the modal elements
     const modal = document.getElementById('exampleModal');
@@ -134,4 +175,29 @@ function showModal(animalData) {
 
     // Use Bootstrap's modal method to show the modal
     $(modal).modal('show');
+}
+
+
+
+//Alterar el icono del input de imagen
+
+function mostrarAlerta() {
+    let alerta = document.getElementById('alertaValidacion');
+    $(alerta).show();
+
+    setTimeout(() => {
+        $(alerta).hide();
+
+    }, 2000); // Oculta la alerta después de 5 segundos
+}
+
+function mostrarRegistro() {
+    let alerta = document.getElementById('alertaRegistro');
+    $(alerta).show();
+
+    setTimeout(() => {
+        $(alerta).hide();
+
+    }, 2000); // Oculta la alerta después de 5 segundos
+
 }
